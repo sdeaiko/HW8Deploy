@@ -1,0 +1,24 @@
+
+<!-- app.component.html -->
+
+<!-- app.component.html -->
+
+<h1>Posts</h1>
+
+<div *ngFor="let post of posts" class="post-container">
+  <h2>{{ post.title | titlecase}}</h2>
+  <span>PostID: {{ post.id }}</span>
+  <p>{{ post.body }}</p>
+  <div *ngIf="post.showComments">
+    <h2 style="font-size: 15px;">Comments:</h2>
+    <div *ngFor="let comment of comments[post.id]">
+      <h3>{{ comment.name | titlecase}}</h3>
+      <p>{{ comment.body }}</p>
+      <p class="email">email: {{ comment.email | lowercase}}</p>
+    </div>
+  </div>
+  <button (click)="toggleComments(post)" class="btn">Show comments</button>
+</div>
+
+
+
